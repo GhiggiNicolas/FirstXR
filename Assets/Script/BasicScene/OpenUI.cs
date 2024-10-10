@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class OpenUI : MonoBehaviour
 {
-    [SerializeField] private GameObject UI;
+    #region Variabili
 
-    private bool IsOpen;
+    [SerializeField] private GameObject UI; // Riferimento all'oggetto UI da attivare/disattivare
+    private bool IsOpen; // Stato dell'UI (aperta o chiusa)
 
+    #endregion
+
+    #region Metodi
+
+    // Metodo di inizializzazione chiamato all'avvio del gioco
     private void Start()
     {
-        IsOpen = false;
-        UI.SetActive(false);
+        IsOpen = false; // Imposta lo stato iniziale dell'UI a chiuso
+        UI.SetActive(false); // Disattiva l'UI all'avvio
     }
 
+    // Metodo per attivare/disattivare l'UI
     public void ActiveToggle()
     {
-        IsOpen = !IsOpen;
-        UI.SetActive(!IsOpen);
+        IsOpen = !IsOpen; // Cambia lo stato dell'UI
+        UI.SetActive(IsOpen); // Attiva o disattiva l'UI in base allo stato
     }
+
+    #endregion
 }
